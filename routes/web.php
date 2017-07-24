@@ -11,12 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/', function () {
     return view('gantt');
 });
 
 Route::match(['get', 'post'], '/gantt_data', "GanttController@data");
+
+Route::get('ajax',function(){
+   return view('message');
+});
+
+Route::post('/getmsg','AjaxController@index');
