@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <script src="dhtmlxScheduler/codebase/sources/dhtmlxscheduler.js" 	type="text/javascript" charset="utf-8"></script>
 <script src="../../codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
 
@@ -30,8 +29,6 @@
     <div class="dhx_cal_data">
     </div>
 </div>
- 
-    
 
 <script type="text/javascript" charset="utf-8">
     document.body.onload = function() {
@@ -52,9 +49,6 @@
 		scheduler.load("./scheduler_data");
 		
 		var dp = new dataProcessor("./scheduler_data");
-        dp.setTransactionMode("POST");
 		dp.init(scheduler);
     };
 </script>
-</body>
-
