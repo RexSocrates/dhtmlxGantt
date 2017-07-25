@@ -18,19 +18,19 @@
 			var task = gantt.getTask(id);
 			if(mode == gantt.config.drag_mode.progress){
 				var pr = Math.floor(task.progress * 100 * 10)/10;
-				gantt.message(task.text + " is now " + pr + "% completed!");
+				dhtmlx.message(task.text + " is now " + pr + "% completed!");
 			}else{
 				var convert = gantt.date.date_to_str("%H:%i, %F %j");
 				var s = convert(task.start_date);
 				var e = convert(task.end_date);
-				gantt.message(task.text + " starts at " + s + " and ends at " + e);
+				dhtmlx.message(task.text + " starts at " + s + " and ends at " + e);
 			}
 		});
 		gantt.attachEvent("onBeforeTaskChanged", function(id, mode, old_event){
 			var task = gantt.getTask(id);
 			if(mode == gantt.config.drag_mode.progress){
 				if(task.progress < old_event.progress){
-					gantt.message(task.text + " progress can't be undone!");
+					dhtmlx.message(task.text + " progress can't be undone!");
 					return false;
 				}
 			}
@@ -51,7 +51,7 @@
 					message += "resized";
 			}
 
-			gantt.message(message);
+			dhtmlx.message(message);
 			return true;
 		});
 

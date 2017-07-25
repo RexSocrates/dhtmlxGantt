@@ -65,11 +65,11 @@
 		
 		gantt.attachEvent("onLightboxSave", function(id, item){
 			if(!item.text){
-				gantt.message({type:"error", text:"Enter task description!"});
+				dhtmlx.message({type:"error", text:"Enter task description!"});
 				return false;
 			}
 			if(!item.user){
-				gantt.message({type:"error", text:"Pick a worker for this task!"});
+				dhtmlx.message({type:"error", text:"Pick a worker for this task!"});
 				return false;
 			}
 			return true;

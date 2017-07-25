@@ -33,13 +33,13 @@
 			max = gantt.getState().max_date,
 			to_str = gantt.templates.task_date;
 
-		return gantt.message("Scale shows days from " + to_str(min) + " to " + to_str(max));
+		return dhtmlx.message("Scale shows days from " + to_str(min) + " to " + to_str(max));
 	}
 
 	gantt.parse(demo_tasks);
 	setTimeout(showScaleDesc, 500);
 	setTimeout(function(){
-		gantt.message("Change date or duration of any task and scales will be adjusted");
+		dhtmlx.message("Change date or duration of any task and scales will be adjusted");
 	}, 4500);
 	gantt.attachEvent("onScaleAdjusted", showScaleDesc);
 

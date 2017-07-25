@@ -1,7 +1,7 @@
 /*
 @license
 
-dhtmlxGantt v.4.1.0 Stardard
+dhtmlxGantt v.3.2.1 Stardard
 This software is covered by GPL license. You also can obtain Commercial or Enterprise license to use it in non-GPL project - please contact sales@dhtmlx.com. Usage without proper license is prohibited.
 
 (c) Dinamenta, UAB.
@@ -19,11 +19,7 @@ gantt._create_tooltip = function(){
 	if (!this._tooltip_html){
 		this._tooltip_html = document.createElement('div');
 		this._tooltip_html.className = gantt._tooltip_class;
-
-		this._waiAria.tooltipAttr(this._tooltip_html);
-
 	}
-
 	return this._tooltip_html;
 };
 
@@ -46,8 +42,6 @@ gantt._show_tooltip = function(text, pos) {
 	var max_height = this.$task.offsetHeight;
 	var max_width = this.$task.offsetWidth;
 	var scroll = this.getScrollState();
-
-	gantt._waiAria.tooltipVisibleAttr(tip);
 
 	//pos.x += scroll.x;
 	pos.y += scroll.y;
@@ -73,14 +67,9 @@ gantt._show_tooltip = function(text, pos) {
 };
 
 gantt._hide_tooltip = function(){
-	if(this._tooltip_html)
-		this._waiAria.tooltipHiddenAttr(this._tooltip_html);
-
 	if (this._tooltip_html && this._tooltip_html.parentNode)
 		this._tooltip_html.parentNode.removeChild(this._tooltip_html);
 	this._tooltip_id = 0;
-
-
 };
 
 gantt._is_tooltip = function(ev) {
@@ -110,7 +99,7 @@ gantt._tooltip_pos = function(ev) {
 	if (ev.pageX || ev.pageY)
 		var pos = {x:ev.pageX, y:ev.pageY};
 
-	var d = gantt.env.isIE ? document.documentElement : document.body;
+	var d = _isIE ? document.documentElement : document.body;
 	var pos = {
 		x:ev.clientX + d.scrollLeft - d.clientLeft,
 		y:ev.clientY + d.scrollTop - d.clientTop
@@ -174,3 +163,10 @@ gantt.attachEvent("onMouseLeave", function(ev){
 // 	gantt._tooltip.hide();
 // 	return true;
 // });
+
+
+/* Could be redifined */
+gantt.templates.tooltip_date_format = gantt.date.date_to_str("%Y-%m-%d");
+gantt.templates.tooltip_text = function(start, end, event) {
+	return "<b>Task:</b> " + event.text + "<br/><b>Start date:</b> " + gantt.templates.tooltip_date_format(start) + "<br/><b>End date:</b> " + gantt.templates.tooltip_date_format(end);
+};

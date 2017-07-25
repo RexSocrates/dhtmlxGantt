@@ -35,7 +35,7 @@
 	}
 
 	function initGantt(gantt){
-		gantt.message({
+		dhtmlx.message({
 			text:"Hold <b>shift</b> or <b>ctrl</b> to select several items",
 			expire:-1
 		});
@@ -91,15 +91,24 @@
 
 	}
 
-	// indent-outdent implementation
-	(function(){
+	function shiftTask(task_id, direction) {
+		var task = gantt.getTask(task_id);
+		task.start_date = gantt.date.add(task.start_date, direction, "day");
+		task.end_date = gantt.calculateEndDate(task.start_date, task.duration);
+		gantt.updateTask(task.id);
+	}
+	function initToolbar(toolbar){
 
-		function shiftTask(task_id, direction) {
-			var task = gantt.getTask(task_id);
-			task.start_date = gantt.date.add(task.start_date, direction, "day");
-			task.end_date = gantt.calculateEndDate(task.start_date, task.duration);
-			gantt.updateTask(task.id);
-		}
+		toolbar.addButton("indent", 1, "Indent");
+		toolbar.setItemToolTip("indent", "Indent selected tasks");
+		toolbar.addButton("outdent", 2, "Outdent");
+		toolbar.setItemToolTip("outdent", "Outdent selected tasks");
+		toolbar.addButton("del", 3, "Delete");
+		toolbar.setItemToolTip("del", "Delete selected tasks");
+		toolbar.addButton("day_ahead", 4, "Move Forward");
+		toolbar.setItemToolTip("day_ahead", "Move selected tasks one day forward");
+		toolbar.addButton("day_ago", 5, "Move Backward");
+		toolbar.setItemToolTip("day_ago", "Move selected tasks one day backward");
 
 		var actions = {
 			"indent": function indent(task_id){
@@ -137,10 +146,10 @@
 				gantt.deleteTask(task_id);
 				return task_id;
 			},
-			"moveForward": function(task_id){
+			"day_ahead": function(task_id){
 				shiftTask(task_id, 1);
 			},
-			"moveBackward": function(task_id){
+			"day_ago": function(task_id){
 				shiftTask(task_id, -1);
 			}
 		};
@@ -149,9 +158,8 @@
 			"outdent":true,
 			"del":true
 		};
-
-		gantt.performAction = function(actionName){
-			var action = actions[actionName];
+		toolbar.attachEvent("onClick", function (id) {
+			var action = actions[id];
 			if(!action)
 				return;
 
@@ -159,7 +167,7 @@
 				var updated = {};
 				gantt.eachSelectedTask(function(task_id){
 
-					if(cascadeAction[actionName]){
+					if(cascadeAction[id]){
 						if(!updated[gantt.getParent(task_id)]){
 							var updated_id = action(task_id);
 							updated[updated_id] = true;
@@ -171,28 +179,6 @@
 					}
 				});
 			});
-		};
-
-
-	})();
-
-	function initToolbar(toolbar){
-
-		toolbar.addButton("indent", 1, "Indent");
-		toolbar.setItemToolTip("indent", "Indent selected tasks");
-		toolbar.addButton("outdent", 2, "Outdent");
-		toolbar.setItemToolTip("outdent", "Outdent selected tasks");
-		toolbar.addButton("del", 3, "Delete");
-		toolbar.setItemToolTip("del", "Delete selected tasks");
-		toolbar.addButton("moveForward", 4, "Move Forward");
-		toolbar.setItemToolTip("moveForward", "Move selected tasks one day forward");
-		toolbar.addButton("moveBackward", 5, "Move Backward");
-		toolbar.setItemToolTip("moveBackward", "Move selected tasks one day backward");
-
-
-
-		toolbar.attachEvent("onClick", function (id) {
-			gantt.performAction(id)
 		});
 	}
 

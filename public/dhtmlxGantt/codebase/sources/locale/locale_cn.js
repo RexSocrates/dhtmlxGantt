@@ -1,18 +1,13 @@
 /*
 @license
 
-dhtmlxGantt v.4.1.0 Stardard
+dhtmlxGantt v.3.2.1 Stardard
 This software is covered by GPL license. You also can obtain Commercial or Enterprise license to use it in non-GPL project - please contact sales@dhtmlx.com. Usage without proper license is prohibited.
 
 (c) Dinamenta, UAB.
 */
 /*
 Translation by FreezeSoul
-
-Update 26/10/2015:
-Translation of new labels by zwh8800
- https://github.com/DHTMLX/gantt/pull/7
-
 */
 gantt.config.day_date="%M %d日 %D";
 gantt.config.default_date="%Y年 %M %d日";
@@ -40,36 +35,30 @@ gantt.locale={
 		confirm_deleting: "是否删除日程?",
 		section_description: "描述",
 		section_time: "时间范围",
-		section_type: "类型",
+		section_type:"Type",
+        /* grid columns */
 
-		/* grid columns */
-
-		column_text: "任务名",
-		column_start_date: "开始时间",
-		column_duration: "持续时间",
-		column_add: "",
+        column_text : "Task name",
+        column_start_date : "Start time",
+        column_duration : "Duration",
+        column_add : "",
 
 		/* link confirmation */
+		link: "Link",
+		confirm_link_deleting:"will be deleted",
+		link_start: " (start)",
+		link_end: " (end)",
 
-		link: "关联",
-		confirm_link_deleting: "将被删除",
-		link_start: " (开始)",
-		link_end: " (结束)",
+		type_task: "Task",
+		type_project: "Project",
+		type_milestone: "Milestone",
 
-		type_task: "任务",
-		type_project: "项目",
-		type_milestone: "里程碑",
-
-		minutes: "分钟",
-		hours: "小时",
-		days: "天",
-		weeks: "周",
-		months: "月",
-		years: "年",
-
-		/* message popup */
-		message_ok: "OK",
-		message_cancel: "关闭"
+        minutes: "Minutes",
+        hours: "Hours",
+        days: "Days",
+        weeks: "Week",
+        months: "Months",
+        years: "Years"
 	}
 };
 

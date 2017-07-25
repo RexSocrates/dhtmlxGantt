@@ -19,7 +19,27 @@ Route::get('/', function () {
     return view('gantt');
 });
 
+Route::get('gantt', function() {
+    return view('gantt');
+});
+
+Route::get('grid', function() {
+    return view('grid');
+});
+
+Route::get('scheduler', function() {
+    return view('scheduler');
+});
+
 Route::match(['get', 'post'], '/gantt_data', "GanttController@data");
+
+Route::match(['get', 'post'], '/grid_data', "GridController@data");
+
+//Route::match(['get', 'post'], '/scheduler_data', "SchedulerController@data");
+
+Route::get('/scheduler_data', "SchedulerController@data");
+
+Route::post('/scheduler_data', "SchedulerController@data");
 
 Route::get('ajax',function(){
    return view('message');

@@ -63,7 +63,7 @@
     gantt.attachEvent("onBeforeLightbox", function(id) {
         var task = gantt.getTask(id);
         if (task.progress == 1){
-            gantt.message({text:"The task is already completed!", type:"completed"});
+            dhtmlx.message({text:"The task is already completed!", type:"completed"});
             return false;
         }
         return true;

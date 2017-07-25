@@ -1,37 +1,3 @@
-### 4.1
-- Added keyboard navigation
-- Added WAI-ARIA support
-- Added High-contrast themes
-- Updated Auto Scheduling and Critical Path calculations (PRO version)
-- Performance improvements for worktime calculation and timescale rendering
-- Croatian locale added
-- Turkish locale updated
-- Fixed bug redrawing vertical markers using gantt.updateMarker
-- Fixed bug with gantt.showTask error in smart rendering mode
-- Bugfixes for skip_off_time config and multi-tier scales configurations
-- Bugfixes with dataProcessor and REST mode support
-
-### 4.0
-- Added Smart rendering of big data sets feature
-- Added Undo/Redo feature
-- Public API improvements - public helpers for popups, ajax, environment variables
-- Public API cleanup - remove redundant global objects, resolve conflicts with dhtmlxSuite
-- Updated critical path calculation - add support for lag/lead of links
-- Updated Spanish and Chinese locales
-- Minor bugfixes
-
-### 3.3
-- Added dependency Auto Scheduling feature *
-- Added support for Fullscreen mode
-- Added support of unscheduled tasks
-- Added initial support of Content Security Policy
-- Allow specifying per column grid sorting settings
-- Improved branch ordering feature - allow D'n'D between levels
-- Support of REST mode for ajax loading/saving
-- Support of backward planning
-
-* The marked functionality requires Commercial or Enterprise license, and not provided under GPL
-
 ### 3.2
 - Added ability to group tasks by custom properties
 - Added multiple selection
@@ -45,8 +11,8 @@
 - Added ability to drag tasks on touch devices
 - Incorrect tooltip behavior on expand/collapse task tree fixed
 - Order of API events during gantt initialization fixed
-- Issues with markers and multiple initialization of the gantt fixed
-- Issues with markers and gantt.clearAll fixed
+- Issues with markes and multiple initialization of the gantt fixed
+- Issues with markes and gantt.clearAll fixed
 - Issues with gantt.serialize method and nested projects of gantt tree fixed
 - Fixes in French locale
 - Improvements in time range calculation

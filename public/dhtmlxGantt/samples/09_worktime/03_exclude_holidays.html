@@ -46,12 +46,12 @@
 	}
 
 	var dateToStr = gantt.date.date_to_str("%d %F");
-	gantt.message("Following holidays are excluded from working time:");
+	dhtmlx.message("Following holidays are excluded from working time:");
 	for(var i =0; i < holidays.length; i++){
 		setTimeout(
 			(function(i){
 				return function(){
-					gantt.message(dateToStr(holidays[i]))
+					dhtmlx.message(dateToStr(holidays[i]))
 				} })(i)
 			,
 			(i+1)*600
