@@ -7,10 +7,17 @@
     </head>
     
     <body>
-        <script type="text/javascript" charset="utf-8">
-            function sendData() {
-                dhx.ajax().post('ajaxPostRoute');
-            }
-        </script>
+        <button onclick="sendData">Click here</button>
     </body>
+    
+    <script type="text/javascript" charset="utf-8">
+        function sendData() {
+//            dhx.ajax().post("ajaxPost");
+//            dhx.ajax().sync().post("ajaxPost");
+            
+            var xhttp = new XMLHttpRequest();
+            xmlhttp.open("POST", "ajaxPost", false);
+            xmlhttp.send();
+        }
+    </script>
 </html>

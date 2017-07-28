@@ -14,6 +14,7 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
         'gantt_data',
-        'scheduler_data'
+        'scheduler_data',
+        'ajaxPost'
     ];
 }

@@ -49,4 +49,10 @@ Route::get('ajax',function(){
    return view('message');
 });
 
+Route::get('getAjaxTestPage', function() {
+    return view('ajaxTest');
+});
+
+Route::post('ajaxPost', 'AjaxController@getPostRequest');
+
 Route::post('/getmsg','AjaxController@index');
