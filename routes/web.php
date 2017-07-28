@@ -11,26 +11,15 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::get('/', function () {
-    return view('gantt');
+    return view('welcome');
 });
 
-Route::get('gantt', function() {
-    return view('gantt');
+Route::get('/scheduler', function () {
+   return view('scheduler');
 });
 
-Route::get('grid', function() {
-    return view('grid');
-});
-
-Route::get('scheduler', function() {
-    return view('scheduler');
-});
-
+<<<<<<< HEAD
 Route::get('/scheduler', function () {
    return view('scheduler');
 });
@@ -47,6 +36,10 @@ Route::match(['get', 'post'], '/grid_data', "GridController@data");
 
 Route::get('ajax',function(){
    return view('message');
+=======
+Route::get('/scheduler2', function () {
+   return view('scheduler2');
+>>>>>>> 86fcc12a3a94f89e9aa7473ab9ba812e6b1bfd50
 });
 
-Route::post('/getmsg','AjaxController@index');
+Route::match(['get', 'post'], '/scheduler_data', "SchedulerController@data");
