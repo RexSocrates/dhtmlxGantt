@@ -31,15 +31,19 @@ Route::get('scheduler', function() {
     return view('scheduler');
 });
 
+Route::get('/scheduler', function () {
+   return view('scheduler');
+});
+
+Route::get('scheduler2', function() {
+    return view('scheduler2');
+});
+
+Route::match(['get', 'post'], '/scheduler_data', "SchedulerController@data");
+
 Route::match(['get', 'post'], '/gantt_data', "GanttController@data");
 
 Route::match(['get', 'post'], '/grid_data', "GridController@data");
-
-//Route::match(['get', 'post'], '/scheduler_data', "SchedulerController@data");
-
-Route::get('/scheduler_data', "SchedulerController@data");
-
-Route::post('/scheduler_data', "SchedulerController@data");
 
 Route::get('ajax',function(){
    return view('message');
