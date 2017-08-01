@@ -19,5 +19,21 @@ class AjaxController extends Controller
         $dataObj = new Data();
         
         $dataObj->insertData('1234');
+        
+        return "I'm in";
+    }
+    
+    public function updateTaskRecord(Request $request) {
+        $data = $request->all();
+        
+//        var_dump($data);
+        
+        $dataObj = new Data();
+        
+        $text = $data['text'];
+        
+        $dataObj->insertData($text);
+        
+        echo 'ASDFGHJ';
     }
 }

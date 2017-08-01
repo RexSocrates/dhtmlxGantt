@@ -2,22 +2,34 @@
     <head>
         <title>AJAX TEST</title>
         
-        <script src="dhtmlxScheduler/codebase/sources/dhtmlxscheduler.js" 	type="text/javascript" charset="utf-8"></script>
-        <script src="../../codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="jquery.js" ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+//                    $.post("ajaxPost2",
+//                           {
+//                        name: "Donald Duck",
+//                        city: "Duckburg"
+//                    },
+//                           function(data,status){
+//                                alert("Success");
+//                    });
+                    $.post("ajaxPost2", {
+                        text : 'This is text'
+                    },
+                          function() {
+                                alert('Can we do it');
+                    });
+                });
+            });
+        </script>
     </head>
     
     <body>
-        <button onclick="sendData">Click here</button>
+        <button>Send an HTTP POST request to a page and get the result back</button>
     </body>
     
-    <script type="text/javascript" charset="utf-8">
-        function sendData() {
-//            dhx.ajax().post("ajaxPost");
-//            dhx.ajax().sync().post("ajaxPost");
-            
-            var xhttp = new XMLHttpRequest();
-            xmlhttp.open("POST", "ajaxPost", false);
-            xmlhttp.send();
-        }
-    </script>
+    
 </html>

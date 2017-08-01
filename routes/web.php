@@ -53,6 +53,9 @@ Route::get('getAjaxTestPage', function() {
     return view('ajaxTest');
 });
 
-Route::post('ajaxPost', 'AjaxController@getPostRequest');
+//Route::post('ajaxPost', 'AjaxController@getPostRequest');
+
+Route::post('ajaxPost2', 'AjaxController@updateTaskRecord');
+Route::get('ajaxGet', 'AjaxController@updateTaskRecord');
 
 Route::post('/getmsg','AjaxController@index');

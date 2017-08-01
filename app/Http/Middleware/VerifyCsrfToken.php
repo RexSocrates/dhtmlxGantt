@@ -15,6 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
         //
         'gantt_data',
         'scheduler_data',
-        'ajaxPost'
+        'ajaxPost',
+        'ajaxPost2'
     ];
 }
